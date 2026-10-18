@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>歌谱搜索</title>
+    <meta name="theme-color" content="#0b1220" />
+    <meta name="description" content="多来源歌谱搜索：Google Drive / 本机文件夹 / 本机导入，支持简繁、拼音、英文搜索；可索引 PDF、图片和 Word 文档" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icons/icon-192.png" />
+    <link rel="apple-touch-icon" href="./icons/icon-192.png" />
+    <link rel="stylesheet" href="./app.css" />
+    <script src="./vendor/qrcode.js"></script>
+  </head>
+  <body>
+    <header id="topbar">
+      <div id="brand">歌谱搜索</div>
+      <nav id="tabs">
+        <button data-tab="search" class="on">搜索</button>
+        <button data-tab="sources">资料库</button>
+        <button data-tab="settings">设置</button>
+      </nav>
+    </header>
+
+    <main>
+      <section id="page-search">
+        <div class="searchbox">
+          <input
+            id="q"
+            type="search"
+            enterkeyhint="search"
+            placeholder="搜歌名 / 歌手 / 拼音 / 编号，简繁都可以"
+            autocomplete="off"
+            autocapitalize="off"
+            autocorrect="off"
+            spellcheck="false"
+          />
+          <button id="q-clear" class="icon" title="清空" aria-label="清空">×</button>
+        </div>
+        <div id="search-filters"></div>
+        <div id="search-hint" class="hint"></div>
+        <ul id="results"></ul>
+      </section>
+
+      <section id="page-sources" hidden></section>
+      <section id="page-settings" hidden></section>
+    </main>
+
+    <div id="viewer" hidden>
+      <div id="v-bar" class="vbar"></div>
+      <div id="v-stage" class="vstage"></div>
+      <div id="v-tools" class="vtools"></div>
+      <div id="v-status" class="vstatus"></div>
+    </div>
+
+    <div id="sheet" class="sheet" hidden></div>
+    <div id="modal" class="modal" hidden></div>
+
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>
